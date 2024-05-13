@@ -284,6 +284,7 @@ class Second extends Phaser.Scene {
 
             if (this.myScore >= 100) {
                 this.scene.start('gameOver'); 
+                this.myScore = 0;
             }
         }
 

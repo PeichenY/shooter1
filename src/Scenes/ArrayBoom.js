@@ -63,7 +63,7 @@ class ArrayBoom extends Phaser.Scene {
         my.sprite.hippo = this.add.sprite(game.config.width/2, 80, "hippo");
         my.sprite.hippo.setScale(0.25);
         my.sprite.hippo.setDepth(1);
-        my.sprite.hippo.scorePoints = 250;
+        my.sprite.hippo.scorePoints = 25;
         my.sprite.hippo.velocity = Phaser.Math.Between(-10,10);
 
         my.sprite.Boss = this.add.sprite(-100, -100, "Boss");
@@ -99,7 +99,7 @@ class ArrayBoom extends Phaser.Scene {
                 { key: "whitePuff02" },
                 { key: "whitePuff03" },
             ],
-            frameRate: 20,    // Note: case sensitive (thank you Ivy!)
+            frameRate: 20,    // Note: case sensitive
             repeat: 5,
             hideOnComplete: true
         });
@@ -164,7 +164,7 @@ class ArrayBoom extends Phaser.Scene {
             bullet.y += 3;
             if (bullet.y > game.config.height) {
                 bullet.destroy();
-                return false; // 不保留此子弹
+                return false;
             }
             if (this.collides(bullet, my.sprite.elephant)) {
                 my.sprite.elephant.hp -= 1;
@@ -235,6 +235,7 @@ class ArrayBoom extends Phaser.Scene {
         //second
         if (this.myScore >= 200) {
             this.scene.start('second'); 
+            this.myScore = 0;
         }
 
        
